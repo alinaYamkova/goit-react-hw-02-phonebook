@@ -19,13 +19,13 @@ class App extends Component {
 
   //добавлення контакту в список(стейт)
   addContact = ({ name, number }) => {
-    const newContact = {
+    const { contacts } = this.state;
+    const contact = {
       id: uuidv4(),
       name,
       number,
     };
 
-    const { contacts } = this.state;
     if (
       contacts.find(
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
@@ -35,7 +35,7 @@ class App extends Component {
       return;
     } else {
       this.setState((prevState) => ({
-        contacts: [...prevState.contacts, newContact],
+        contacts: [contact, ...prevState.contacts],
       }));
     }
   };

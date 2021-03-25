@@ -31,10 +31,13 @@ class ContactForm extends Component {
             Name
             <input
               id={uuidv4()}
-              value={this.state.name}
-              onChange={this.handleChange}
               type="text"
               name="name"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+              required
+              value={this.state.name}
+              onChange={this.handleChange}
               placeholder="name"
               className={s.input}
             />
